@@ -13,7 +13,7 @@ import { SITE } from "@data/constants";
 interface Article {
   isRightSection: boolean;
   title: string;
-  subTitle: string;
+  subTitle?: string;
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
@@ -29,19 +29,118 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Desmotec",
+    title: "Desmotec E.Board, D.Full, V.Full",
     subTitle: "Desmotec e un aparat care te verifica de iti sar fulgii.",
     single: true,
     imgOne: desmotec,
     imgOneAlt: "Desmotec picture.",
   },
   {
-    isRightSection: false,
+    isRightSection: true,
     title: "Theragun Pro",
     subTitle: "Nu e Laser, e Theragun Pro. Iti face muschii grozavi, repejos",
-    img: theragun,
-    imgAlt: "Theragun Pro",
+    single: true,
+    imgOne: theragun,
+    imgOneAlt: "Theragun Pro",
     btnExists: false,
+  },
+  {
+    isRightSection: true,
+    title: "Kineo Intelligent Load",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "Kineo Intelligent Load",
+  },
+  {
+    isRightSection: true,
+    title: "Reaxing Lights PRO",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "Reaxing Lights PRO",
+  },
+  {
+    isRightSection: true,
+    title: "ActivForce 2",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "ActivForce 2",
+  },
+  {
+    isRightSection: true,
+    title: "MotionGuidance",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "MotionGuidance",
+  },
+  {
+    isRightSection: true,
+    title: "Senaptec Strobe Classic",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "Senaptec Strobe Classic",
+  },
+  {
+    isRightSection: true,
+    title: "EPI (electroliza percutanata intratisulara)",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "EPI (electroliza percutanata intratisulara)",
+  },
+  {
+    isRightSection: true,
+    title: "AS Super 4 Digital",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "AS Super 4 Digital",
+  },
+  {
+    isRightSection: true,
+    title: "Globus Diacare",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "Globus Diacare",
+  },
+  {
+    isRightSection: true,
+    title: "Globus Medisound",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "Globus Medisound",
+  },
+  {
+    isRightSection: true,
+    title: "Ecografie Vinno",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "Ecografie Vinno",
+  },
+  {
+    isRightSection: true,
+    title: "RecoveryAir",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "RecoveryAir",
+  },
+  {
+    isRightSection: true,
+    title: "Powerplay",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "Powerplay",
+  },
+  {
+    isRightSection: true,
+    title: "HyperVolt",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "HyperVolt",
+  },
+  {
+    isRightSection: true,
+    title: "Compex",
+    single: true,
+    imgOne: "",
+    imgOneAlt: "Compex",
   },
 ];
 
@@ -66,7 +165,6 @@ const pageTitle: string = `Tehnologii | ${SITE.title}`;
     inLanguage: "ro-RO",
   }}
 >
-  <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
     title="Tehnologiile viitorului"
     subTitle="La HealthAcademy folosim cele mai moderne tehnologii din fizioterapie. Si le folosim exact cum ai tu nevoie pentru sanatatea ta."
@@ -74,14 +172,6 @@ const pageTitle: string = `Tehnologii | ${SITE.title}`;
     btnTitle="Contacteaza-ne"
     btnURL="/contact"
   />
-  <!-- RightSection and LeftSection contain details about various services along with pertinent imagery.
-  They alternate for variety in design.
-  The 'btnExists' property is used to toggle the display of a button in these sections.
-  When btnExists={true}, a button is displayed.
-  This can be used to link to more detailed information or related resources.
-  RightSection can also conditionally render one or two images based on the 'single' property.
-  If 'single' is true, it displays one image, otherwise it displays two.
-  -->
   {
     articles.map((article) => {
       return article.isRightSection ? (
