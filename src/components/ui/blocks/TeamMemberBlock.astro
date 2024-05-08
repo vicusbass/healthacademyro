@@ -1,0 +1,22 @@
+---
+const { heading, content } = Astro.props;
+
+interface Props {
+  heading: string;
+  content: string;
+}
+---
+
+<!-- Root container, which arranges the heading and content -->
+<div class="flex gap-x-7 py-6 shadow-lg">
+  <!-- Slot to allow for extensibility of the component -->
+  <slot />
+  <div class="grow">
+    <!-- Heading of the section -->
+    <h3 class="font-bold text-neutral-700 dark:text-neutral-300">
+      {heading}
+    </h3>
+    <!-- Content of the section -->
+    <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">{content}</p>
+  </div>
+</div>

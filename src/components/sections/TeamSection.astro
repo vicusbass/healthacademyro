@@ -1,0 +1,75 @@
+---
+import TeamMemberBlock from "@components/ui/blocks/TeamMemberBlock.astro";
+
+const title: string = "Echipa noastră";
+const subTitle: string = "";
+
+interface Member {
+  name: string;
+  details: string;
+}
+const members: Member[] = [
+  {
+    name: "Andrei Cristea",
+    details:
+      "fizio-kinetoterapeut, MSKUS, DryNeedling & EPI therapist, terapeut de tesuturi moi, chiropractician, performance & athletic trainer",
+  },
+  {
+    name: "Dr. Horatiu Badiu",
+    details: "ortoped",
+  },
+  {
+    name: "Dr. Mircea Tabacar",
+    details: "ortoped",
+  },
+  {
+    name: "Dr. Vladimir Pisarenco",
+    details: "ortoped",
+  },
+  {
+    name: "Dr. Corina Goia",
+    details: "ortoped pediatru",
+  },
+  {
+    name: "Vlad Cadis",
+    details: "fizio-kinetoterapeut",
+  },
+  {
+    name: "Amalia Timis",
+    details: "fizio-kineto",
+  },
+  {
+    name: "Alyce Began",
+    details: "fizio-kineto",
+  },
+  {
+    name: "Paula Noje",
+    details: "nutritionist-dietetician",
+  },
+];
+---
+
+<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <div class="mx-auto max-w-2xl lg:max-w-5xl">
+    <div class="text-center">
+      <h1
+        class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+      >
+        {title}
+      </h1>
+      <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+        {subTitle}
+      </p>
+    </div>
+
+    <div class="mt-12 divide-y divide-neutral-300 dark:divide-neutral-700">
+      {
+        members.map((member) => {
+          return (
+            <TeamMemberBlock heading={member.name} content={member.details} />
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
