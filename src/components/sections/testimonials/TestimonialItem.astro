@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import Icon from "../../ui/icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 
 const { content, author, role, avatarSrc } = Astro.props;
 
@@ -13,7 +13,7 @@ interface Props {
 ---
 
 <blockquote class="relative">
-  <Icon name="quotation" />
+  <Icon name="ic:outline-format-quote" />
 
   <div class="relative z-10">
     <p class="text-xl italic text-neutral-800 dark:text-neutral-200">

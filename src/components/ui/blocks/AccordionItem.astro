@@ -1,5 +1,5 @@
 ---
-import Icon from "@components/ui/icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 // Define props from Astro
 const { id, collapseId, question, answer, first } = Astro.props;
 // Define TypeScript interface for props
@@ -30,10 +30,10 @@ function getAccordionClass(first: boolean = false) {
   >
     {question}
     <!-- SVG Icon that is shown when the accordion is NOT active -->
-    <Icon name="accordionNotActive" />
+    <Icon name="ic:sharp-arrow-back-ios-new" />
 
     <!-- SVG Icon that is shown when the accordion is active -->
-    <Icon name="accordionActive" />
+    <Icon name="ic:outline-arrow-forward-ios" />
   </button>
   <!-- The collapsible content of the accordion -->
   <div
