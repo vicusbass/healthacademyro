@@ -2,8 +2,8 @@
 // Import the necessary dependencies
 import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import strings from "@utils/navigation.ts";
-import Icon from "@components/ui/icons/Icon.astro";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import Logo from "@images/logo-transparent-light.png";
 import { SITE } from "@data/constants";
 ---
@@ -40,15 +40,11 @@ import { SITE } from "@data/constants";
       <!-- Social Brands -->
       <div>
         <FooterSocialLink url={strings.socialLinks.facebook}
-          ><Icon name="facebookFooter" />
+          ><Icon name="mdi:facebook" />
         </FooterSocialLink>
 
-        <FooterSocialLink url={strings.socialLinks.x}
-          ><Icon name="xFooter" /></FooterSocialLink
-        >
-
         <FooterSocialLink url={strings.socialLinks.google}
-          ><Icon name="googleFooter" />
+          ><Icon name="mdi:google-plus" />
         </FooterSocialLink>
       </div>
     </div>
