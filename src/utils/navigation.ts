@@ -9,7 +9,7 @@ const navBarLinks = [
 const socialLinks = {
   facebook: "https://www.facebook.com/healthacademycluj/",
   x: "https://twitter.com/",
-  google: "https://www.google.com/",
+  google: "https://maps.app.goo.gl/swGVuuLGwymEBXaL7",
 };
 
 export default {
