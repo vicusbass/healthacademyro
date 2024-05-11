@@ -1,7 +1,7 @@
 ---
 // Import the necessary dependencies.
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
-import Icon from "@components/ui/icons/Icon.astro";
+import { Icon } from "astro-icon/components";
 
 // Define the variables that will be used in this component
 const title: string = "Contactează-ne";
@@ -31,7 +31,10 @@ const subTitle: string =
         linkTitle="+40725215136"
         linkURL="https://wa.me/40725215136"
         isArrowVisible={true}
-        ><Icon name="chatBubble" />
+        ><Icon
+          name="mdi:chat-outline"
+          class="mt-1.5 h-6 w-6 flex-shrink-0 text-red-500 dark:text-red-500"
+        />
       </ContactIconBlock>
 
       <ContactIconBlock
@@ -39,7 +42,10 @@ const subTitle: string =
         content="Health Academy"
         isAddressVisible={true}
         addressContent="Piata Cipariu 11, Cluj-Napoca (intrarea se face prin spatele clădirii de pe strada Voltaire)"
-        ><Icon name="mapPin" />
+        ><Icon
+          name="ic:outline-add-location-alt"
+          class="mt-1.5 h-6 w-6 flex-shrink-0 text-red-500 dark:text-red-500"
+        />
       </ContactIconBlock>
 
       <ContactIconBlock
@@ -48,7 +54,10 @@ const subTitle: string =
         isLinkVisible={true}
         linkTitle="healthacademy.cluj@gmail.com"
         linkURL="#"
-        ><Icon name="envelopeOpen" />
+        ><Icon
+          name="ic:outline-email"
+          class="mt-1.5 h-6 w-6 flex-shrink-0 text-red-500 dark:text-red-500"
+        />
       </ContactIconBlock>
     </div>
   </div>
