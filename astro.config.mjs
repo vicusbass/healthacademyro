@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
+import vercel from '@astrojs/vercel/serverless';
 
 import icon from "astro-icon";
 
@@ -17,7 +18,10 @@ export default defineConfig({
     gzip: false,
     brotli: true
   }), icon()],
-  output: "static",
+  output: "server",
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
   experimental: {
     clientPrerender: true,
     directRenderScript: true
