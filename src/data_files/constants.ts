@@ -3,8 +3,8 @@ import ogImageSrc from "@images/social.png";
 export const SITE = {
   title: "HealthAcademy",
   tagline: "Profesionalism, Pasiune și Respect",
-  description: "Servicii de recuperare medicală",
-  description_short: "Recuperare și performanță de top pentru atleții de toate nivelurile",
+  description: "Servicii de recuperare medicală și pregătire sportivă",
+  description_short: "Centru de excelență în recuperare și performanță sportivă, Centru de excelență în ortopedie",
   url: "https://health-academy.ro",
   author: "Vasile Pop",
 };
@@ -34,6 +34,6 @@ export const OG = {
   type: "website",
   url: SITE.url,
   title: `${SITE.title}: : Servicii de recuperare medicală`,
-  description: "Recuperare și performanță de top pentru atleții de toate nivelurile",
+  description: "Centru de excelență în recuperare și performanță sportivă, Centru de excelență în ortopedie",
   image: ogImageSrc,
 };
