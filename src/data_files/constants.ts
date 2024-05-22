@@ -33,7 +33,7 @@ export const OG = {
   locale: "ro_RO",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Servicii de recuperare medicală`,
+  title: `${SITE.title}: Servicii de recuperare medicală și pregătire sportivă`,
   description: "Centru de excelență în recuperare și performanță sportivă, Centru de excelență în ortopedie",
   image: ogImageSrc,
 };
