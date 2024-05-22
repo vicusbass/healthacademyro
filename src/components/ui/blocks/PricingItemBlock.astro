@@ -1,0 +1,9 @@
+---
+const { item } = Astro.props;
+const parts = item.split("*");
+---
+
+<li class="mb-2">
+  {parts[0]}
+  {parts[1] && <span class="italic">*{parts[1]}</span>}
+</li>

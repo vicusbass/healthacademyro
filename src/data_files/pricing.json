@@ -1,0 +1,130 @@
+[
+    {
+        "category": "I. Servicii de pregătire fizică",
+        "subcategories": [
+            {
+                "subcategory": "Pregătire sportivă de performanță",
+                "alias": "Performance Lab",
+                "items": [
+                    "ședintă unică: 120 lei",
+                    "abonament 10 ședințe: 1000 lei; *valabilitate maxim 45 zile"
+                ],
+                "notes": [
+                    "serviciul include pregătire sportivă personalizată și computerizată, antrenament neurocognitiv, antrenament reactivitate, antrenament BFR (blood flow restriction), SGA (stretching global activ), măsurarea / monitorizarea forțelor musculare și a biomecanicii, generare de vaste tipuri de contracții musculare și sarcini mecanice (contracții izometrice, izotonice cu/fără inerție, concentrice, excentrice, izokinetice, rezistență diferențială variabilă, izoinerțială, elastică, vascoasă), refacere post-efort (presoterapie, crioterapie, electrostimulare, masaj mecanizat prin percuție și vibrație), profilaxie primară / prevenție și identificarea asimetriilor / factorilor de risc, ghidaj nutrițional"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "I. Servicii de recuperare medicală",
+        "subcategories": [
+            {
+                "alias": "Physio Lab",
+                "subcategory": "Fizio-kinetoterapie",
+                "items": [
+                    "ședință unică: 180 lei",
+                    "abonament 10 ședințe: 1600 lei; *valabilitate maxim 30 zile",
+                    "abonament 20 ședințe: 2800 lei; *valabilitate maxim 60 zile"
+                ],
+                "notes": [
+                    "serviciul include kinetoterapie personalizată și computerizată, generare de date precise obiective și feedback (placă de simetrie / echilibru, evaluare și pliometrii, dinamometrie / măsurarea forțelor musculare, măsurarea amplitudinii de mișcare articulare), generare de vaste tipuri de contracții musculare și sarcini mecanice (contracții izometrice, izotonice cu / fără inerție, concentrice, excentrice, izokinetice, rezistență diferențială variabilă, izoinerțială, elastică, vascoasă), antrenament BFR (blood flow restriction), reabilitare neruro-cognitivă, RPG (reeducare posturală globală) și SGA (stretching global activ), mobilizări articulare și de țesuturi moi (tehnici manuale, tehnica Mulligan), mobilizări de țesuturi moi asistate instrumental / mobilizare fascială (blades, decompresie miofascială / cupping, flossing, masaj mecanizat prin percuție și vibrație), fizioterapie (TECAR, electroterapie, ultrasunete, crioterapie, drenaj veno-limfatic / presoterapie), taping kinesiologic și dynamic",
+                    "fără limită de timp sau de servicii, in funcție de necesitățile pacientului conform planului de tratament"
+                ]
+            },
+            {
+                "subcategory": "Terapii complementare",
+                "alias": "Therapy Lab",
+                "items": [
+                    "evaluare ecografică musculoscheletală și clinică: 250 lei",
+                    "reevalare ecografică / monitorizare: 150 lei",
+                    "evaluare funcțională / biomecanică (testări izokinetice, măsurarea forțelor musculare, depistarea disfuncțiilor, asimetriilor și dezechilibrelor, testare return to run / return to train / return to sport): 350 lei",
+                    "EPI (eletroliză percutanată intratisulară): 250 lei",
+                    "Electro-DryNeedling: 220 lei",
+                    "DryNeedling: 200 lei",
+                    "terapie manuală miofascială (masaj medical, chiropractică / manipulări osteoarticulare, terapia punctelor trigger, IASTM, cupping, flossing, masaj mecanizat prin percuție și vibrație): 250 lei; *max 60 min"
+                ],
+                "packages": [
+                    "Pachet evaluare ecografică / clinică + 1 serviciu dintre EPI / DryNeedling / Electro-DryNeedling / terapie manuală: 350 lei",
+                    "Pachet 4 ședințe EPI: 900 lei",
+                    "Pachet 4 ședințe terapie manuală: 900 lei"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "III. Servicii singulare",
+        "subcategories": [
+            {
+                "items": [
+                    "Kinetoterapie personalizată 60 min: 130 lei",
+                    "Mobilizări manuale articulare și de țesuturi moi: 50 lei; *15 min",
+                    "Mobilizări țesuturi moi asistate instrumental / terapie fascială: 50 lei; *1regiune / 15 min",
+                    "Chiropractică / manipulări osteoarticulare: 120 lei",
+                    "Masaj terapeutic / sportiv / relaxare: 120 lei; *1 regiune (membre inferioare / membre superioare / spate) / 25 min",
+                    "TECAR: 80 lei",
+                    "Ultrasunete: 60 lei",
+                    "Electroterapie: 60 lei",
+                    "Crio-Compresie: 80 lei; *20 min",
+                    "Drenaj veno-limfatic / presoterapie: 60 lei; *20 min",
+                    "Taping (kinesiologic, dynamic, rigid, elastic): 50 lei; *1 regiune"
+                ],
+                "packages": [
+                    "Pachet 4 masaje: 400 lei"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "IV. Servicii medicale",
+        "subcategories": [
+            {
+                "items": [
+                    "Consultație ortopedie: 300 lei",
+                    "Consultație neurologie: 300 lei",
+                    "Control ortopedie: 150 lei",
+                    "Control neurologie: 150 lei",
+                    "Ablație fire: 100 lei",
+                    "Pansament steril: 50 lei",
+                    "Ecografie părți moi: 250 lei",
+                    "Puncție: 250 lei",
+                    "Infiltrație antiinflamator: 300 lei",
+                    "Infiltrație soluție vascoelastică: 1000 lei",
+                    "Infiltrație PRP: 1200 lei"
+                ],
+                "packages": [
+                    "Pachet 3 infiltrații PRP: 3000 lei"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "V. Telemedicină",
+        "subcategories": [
+            {
+                "items": [
+                    "Consultație și elaborare plan terapeutic Sebastiano Nutarelli (Sports Rehab Swiss) + implementare plan tratament Andrei Cristea: 1000 lei"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "VI. Servicii nutriționale - dietoterapie",
+        "subcategories": [
+            {
+                "items": [
+                    "Consultație inițială și analiză corporală (45-60 min): 200 lei",
+                    "Plan alimentar personalizat: 500 lei",
+                    "Plan vitaminizare / suplimentație sportivi: gratis",
+                    "Prelungire pachet dietoterapie: 400 lei",
+                    "Meniu standard 7 zile: 350 lei"
+                ],
+                "packages": [
+                    "Pachet 1 lună: 700 lei",
+                    "Pachet 3 luni: 1300 lei",
+                    "Prelungire pachet lunar: 300 lei",
+                    "Pachet dietoterapie – probleme medicale: 1000-1500 lei"
+                ]
+            }
+        ]
+    }
+]

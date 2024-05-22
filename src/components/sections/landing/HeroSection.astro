@@ -12,9 +12,6 @@ const {
   primaryBtnURL,
   secondaryBtn,
   secondaryBtnURL,
-  thirdBtn,
-  thirdBtnURL,
-  thirdBtnTarget,
   src,
   alt,
 } = Astro.props;
@@ -27,9 +24,6 @@ interface Props {
   primaryBtnURL?: string;
   secondaryBtn?: string;
   secondaryBtnURL?: string;
-  thirdBtn?: string;
-  thirdBtnURL?: string;
-  thirdBtnTarget?: string;
   withReview?: boolean;
   avatars?: Array<string>;
   starCount?: number;
@@ -61,20 +55,11 @@ interface Props {
         />
       )
     }
-    <div class="mt-7 grid w-full gap-3 sm:flex">
+    <div class="mt-7 grid w-full gap-3 sm:inline-flex">
       {primaryBtn && <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />}
       {
         secondaryBtn && (
           <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
-        )
-      }
-      {
-        thirdBtn && (
-          <SecondaryCTA
-            title={thirdBtn}
-            url={thirdBtnURL}
-            target={thirdBtnTarget}
-          />
         )
       }
     </div>

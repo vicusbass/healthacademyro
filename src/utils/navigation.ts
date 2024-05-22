@@ -3,6 +3,7 @@ const navBarLinks = [
   { name: "Tehnologii", url: "/technologies" },
   { name: "Servicii", url: "/services" },
   { name: "Afecțiuni", url: "/afectiuni"},
+  { name: "Prețuri", url: "/pricing"},
   { name: "Echipa", url: "/team" },
   { name: "Contact", url: "/contact" },
 ];

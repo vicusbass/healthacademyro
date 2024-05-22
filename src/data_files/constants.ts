@@ -5,7 +5,7 @@ export const SITE = {
   tagline: "Profesionalism, Pasiune și Respect",
   description: "Servicii de recuperare medicală",
   description_short: "Recuperare și performanță de top pentru atleții de toate nivelurile",
-  url: "https://healthacademy.ro",
+  url: "https://health-academy.ro",
   author: "Vasile Pop",
 };
 
