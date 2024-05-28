@@ -4,6 +4,8 @@ import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/Navbar.astro";
 import FooterSection from "@components/sections/FooterSection.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import { ViewTransitions } from "astro:transitions";
+import { fade } from "astro:transitions";
 import { SITE } from "@data/constants";
 
 // Setting expected props
@@ -18,17 +20,18 @@ interface Props {
 }
 ---
 
-<!--
-This is the main structure for the page.
-We set the language of the page to English and add classes for scrollbar and scroll behavior.
--->
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth dark scroll-pt-16">
+<html
+  lang={lang}
+  class="scrollbar-hide lenis lenis-smooth dark scroll-pt-16"
+  transition:animate={fade({ duration: "0.4s" })}
+>
   <head>
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
     <SpeedInsights />
     <!-- Define the title of the page -->
     <title>{title}</title>
+    <ViewTransitions />
     <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
     <script is:inline>
       // Script to handle Lenis library settings for smooth scrolling
