@@ -1,5 +1,6 @@
 ---
 import TeamMemberBlock from "@components/ui/blocks/TeamMemberBlock.astro";
+import TeamMemberCard from "../ui/blocks/TeamMemberCard.astro";
 
 const title: string = "Echipa noastră";
 const subTitle: string = "";
@@ -7,6 +8,7 @@ const subTitle: string = "";
 interface Member {
   name: string;
   details: string;
+  image?: string;
 }
 const members: Member[] = [
   {
@@ -20,6 +22,7 @@ const members: Member[] = [
   {
     name: "Dr. Mircea Tabacar",
     details: "ortoped",
+    image: "tabacar.jpeg",
   },
   {
     name: "Dr. Vladimir Pisarenco",
@@ -61,11 +64,16 @@ const members: Member[] = [
       </p>
     </div>
 
-    <div class="mt-12 divide-y divide-neutral-300 dark:divide-neutral-700">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {
         members.map((member) => {
+          const image = member.image ? member.image : "mystery.jpeg";
           return (
-            <TeamMemberBlock heading={member.name} content={member.details} />
+            <TeamMemberCard
+              name={member.name}
+              details={member.details}
+              image={"/src/images/team/" + image}
+            />
           );
         })
       }
