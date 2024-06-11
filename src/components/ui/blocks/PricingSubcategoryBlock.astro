@@ -13,7 +13,7 @@ interface Props {
   <h3 class="text-lg font-bold text-neutral-700 dark:text-neutral-300">
     {subcategory.subcategory}
   </h3>
-  <ul class="mt-2 list-disc dark:text-neutral-300">
+  <ul class="mt-2 list-disc dark:text-neutral-100">
     {subcategory.items.map((item) => <PricingItemBlock item={item} />)}
     {
       subcategory.packages && (
@@ -28,7 +28,7 @@ interface Props {
   </ul>
   {
     subcategory.notes && (
-      <ul class="mt-3 italic dark:text-neutral-300">
+      <ul class="mt-3 italic dark:text-neutral-100">
         {subcategory.notes.map((note) => (
           <li>*{note}</li>
         ))}
