@@ -33,10 +33,6 @@ const socialImageRes = await getImage({
 });
 const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
 
-const languages: { [key: string]: string } = {
-  ro: "",
-};
-
 function createHref(lang: string, prefix: string, path: string): string {
   const hasPrefix = path.startsWith(`/${prefix}/`);
 
@@ -44,19 +40,6 @@ function createHref(lang: string, prefix: string, path: string): string {
   const normalizedBasePath = basePath.replace(/\/\/+/g, "/");
   return `${URL.slice(0, -1)}${normalizedBasePath}`;
 }
-
-const fullPath: string = Astro.url.pathname;
-
-const alternateLanguageLinks: string = Object.entries(languages)
-  .map(([lang, prefix]: [string, string]) => {
-    const basePath: string =
-      lang === "en" ? fullPath.replace(/^\/fr\//, "/") : fullPath;
-
-    const href: string = createHref(lang, prefix, basePath);
-
-    return `<link rel="alternate" hreflang="${lang}" href="${href}" />`;
-  })
-  .join("\n");
 
 // Generate and optimize the favicon images
 const faviconIco = await getImage({
