@@ -1,14 +1,14 @@
 /**
  * Custom fade transition that prevents flashing during page transitions
  */
-export function noFlashFade({ duration = '0.4s' } = {}) {
+export function noFlashFade({ duration = '0.8s' } = {}) {
   return {
     forwards: {
       old: [
         {
           name: 'fadeOut',
           duration,
-          easing: 'ease-out',
+          easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
           fillMode: 'both',
         },
       ],
@@ -16,7 +16,7 @@ export function noFlashFade({ duration = '0.4s' } = {}) {
         {
           name: 'fadeIn',
           duration,
-          easing: 'ease-in',
+          easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
           fillMode: 'both',
           delay: '0s', // Start immediately to prevent flash
         },
@@ -27,7 +27,7 @@ export function noFlashFade({ duration = '0.4s' } = {}) {
         {
           name: 'fadeOut',
           duration,
-          easing: 'ease-out',
+          easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
           fillMode: 'both',
         },
       ],
@@ -35,7 +35,7 @@ export function noFlashFade({ duration = '0.4s' } = {}) {
         {
           name: 'fadeIn',
           duration,
-          easing: 'ease-in',
+          easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
           fillMode: 'both',
           delay: '0s', // Start immediately to prevent flash
         },
@@ -43,20 +43,3 @@ export function noFlashFade({ duration = '0.4s' } = {}) {
     },
   };
 }
-
-// Define the CSS animations
-document.addEventListener('astro:page-load', () => {
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    @keyframes fadeOut {
-      from { opacity: 1; }
-      to { opacity: 0; }
-    }
-  `;
-  document.head.appendChild(style);
-});
