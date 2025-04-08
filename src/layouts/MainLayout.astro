@@ -1,19 +1,20 @@
 ---
 // Importing necessary components
-import Meta from "@components/Meta.astro";
-import Navbar from "@components/sections/Navbar.astro";
-import FooterSection from "@components/sections/FooterSection.astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
-import { SITE } from "@data/constants";
+import Meta from '@components/Meta.astro';
+import Navbar from '@components/sections/Navbar.astro';
+import FooterSection from '@components/sections/FooterSection.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+import { SITE } from '@data/constants';
+import '../styles/transitions.css';
 
 // Setting expected props
-const { title = SITE.title, meta, structuredData, lang = "ro" } = Astro.props;
+const { title = SITE.title, meta, structuredData, lang = 'ro' } = Astro.props;
 
 // Interface to type-check the properties
 interface Props {
   title?: string;
-  meta?: string;
-  structuredData?: object;
+  meta?: any;
+  structuredData?: any;
   lang?: string;
 }
 ---
@@ -28,7 +29,17 @@ interface Props {
     <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
     <script is:inline>
       // Script to handle Lenis library settings for smooth scrolling
-      const lenis = new Lenis();
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+      });
 
       function raf(time) {
         lenis.raf(time);
@@ -36,18 +47,16 @@ interface Props {
       }
 
       requestAnimationFrame(raf);
+
     </script>
   </head>
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
-    <!--
-    Setting up the main structure of the page.
-    The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
-    -->
+
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
       <Navbar />
-      <main>
+      <main class="page-content">
         <slot />
       </main>
     </div>
@@ -58,18 +67,8 @@ interface Props {
         display: none;
       }
 
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-
-      html.lenis,
-      html.lenis body {
-        height: auto;
-      }
-
       .lenis.lenis-smooth {
-        scroll-behavior: auto !important;
+        scroll-behavior: auto;
       }
 
       .lenis.lenis-smooth [data-lenis-prevent] {
