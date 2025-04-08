@@ -3,6 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import compressor from 'astro-compressor';
 import icon from 'astro-icon';
+import vercel from '@astrojs/vercel';
 
 import mdx from '@astrojs/mdx';
 
@@ -18,7 +19,8 @@ export default defineConfig({
     gzip: false,
     brotli: true,
   }), icon(), mdx()],
-  output: 'static',
+  output: 'server',
+  adapter: vercel(),
   // experimental: {
   //   clientPrerender: true,
   //   directRenderScript: true,
