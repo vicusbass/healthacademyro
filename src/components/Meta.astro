@@ -1,5 +1,6 @@
 ---
 import { getImage } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
 import { OG, SEO, SITE } from "@data/constants";
 import faviconIcoSrc from "@images/favicon.ico";
 import faviconSrc from "@images/apple-touch-icon.png";
@@ -109,3 +110,4 @@ const appleTouchIcon = await getImage({
 <link href={appleTouchIcon.src} rel="shortcut icon" />
 <!-- Set theme color -->
 <meta name="theme-color" content="#facc15" />
+<ClientRouter />
