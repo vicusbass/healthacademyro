@@ -19,7 +19,7 @@ interface Props {
 }
 ---
 
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth dark scroll-pt-16">
+<html lang={lang} class="scrollbar-hide dark scroll-pt-16">
   <head>
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
@@ -27,60 +27,13 @@ interface Props {
     <!-- Define the title of the page -->
     <title>{title}</title>
     <ClientRouter />
-    <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
     <script is:inline src="/scripts/nav-persistence.js"></script>
-    <script is:inline>
-      // Script to initialize Lenis for smooth scrolling
-      let lenis;
-      
-      // Initialize Lenis once
-      function initLenis() {
-        if (lenis) return; // Don't re-initialize if already exists
-        
-        lenis = new window.Lenis({
-          duration: 1.2,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          direction: 'vertical',
-          gestureDirection: 'vertical',
-          smooth: true,
-          mouseMultiplier: 1,
-          smoothTouch: false,
-          touchMultiplier: 2,
-          infinite: false,
-        });
-
-        function raf(time) {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-      }
-      
-      // Initialize on first page load
-      document.addEventListener('astro:page-load', () => {
-        initLenis();
-      }, { once: true });
-      
-      // Clean up on page navigation start to avoid conflicts
-      document.addEventListener('astro:before-preparation', () => {
-        if (lenis) {
-          lenis.destroy();
-          lenis = null;
-        }
-      });
-      
-      // Re-initialize after navigation completes
-      document.addEventListener('astro:after-swap', () => {
-        initLenis();
-      });
-    </script>
   </head>
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-      <div transition:persist>
+      <div data-astro-transition-persist="navbar">
         <Navbar />
       </div>
       <main class="page-content" transition:animate="fade">
@@ -89,27 +42,10 @@ interface Props {
     </div>
     <FooterSection />
     <style>
-      /* CSS rules for the page scrollbar and scrolling experience with lenis library */
+      /* CSS rules for the page scrollbar */
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
       }
-
-      .lenis.lenis-smooth {
-        scroll-behavior: auto;
-      }
-
-      .lenis.lenis-smooth [data-lenis-prevent] {
-        overscroll-behavior: contain;
-      }
-
-      .lenis.lenis-stopped {
-        overflow: hidden;
-      }
-
-      .lenis.lenis-scrolling iframe {
-        pointer-events: none;
-      }
-      
     </style>
   </body>
 </html>
