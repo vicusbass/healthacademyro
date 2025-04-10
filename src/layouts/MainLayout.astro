@@ -5,6 +5,7 @@ import Navbar from '@components/sections/Navbar.astro';
 import FooterSection from '@components/sections/FooterSection.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import { SITE } from '@data/constants';
+import { ClientRouter } from 'astro:transitions';
 
 // Setting expected props
 const { title = SITE.title, meta, structuredData, lang = 'ro' } = Astro.props;
@@ -25,38 +26,39 @@ interface Props {
     <SpeedInsights />
     <!-- Define the title of the page -->
     <title>{title}</title>
+    <ClientRouter />
     <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
     <script is:inline src="/scripts/nav-persistence.js"></script>
     <script is:inline>
-      // Script to handle Lenis library settings for smooth scrolling
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-        infinite: false,
+      // Script to initialize Lenis for smooth scrolling
+      document.addEventListener('astro:page-load', () => {
+        const lenis = new window.Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          direction: 'vertical',
+          gestureDirection: 'vertical',
+          smooth: true,
+          mouseMultiplier: 1,
+          smoothTouch: false,
+          touchMultiplier: 2,
+          infinite: false,
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          window.requestAnimationFrame(raf);
+        }
+
+        window.requestAnimationFrame(raf);
       });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
-
     </script>
   </head>
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
-
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
       <Navbar />
-      <main class="page-content">
+      <main class="page-content" transition:animate="slide">
         <slot />
       </main>
     </div>
@@ -81,17 +83,6 @@ interface Props {
 
       .lenis.lenis-scrolling iframe {
         pointer-events: none;
-      }
-
-      /* Custom fade animations for page transitions */
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      
-      @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
       }
     </style>
   </body>
