@@ -26,17 +26,17 @@ interface Props {
     <SpeedInsights />
     <!-- Define the title of the page -->
     <title>{title}</title>
-    <ClientRouter />
     <script is:inline src="/scripts/nav-persistence.js"></script>
   </head>
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
-      <div data-astro-transition-persist="navbar">
+      <div transition:persist>
         <Navbar />
       </div>
       <main class="page-content" transition:animate="fade">
+        <ClientRouter />
         <slot />
       </main>
     </div>
