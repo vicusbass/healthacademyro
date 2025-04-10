@@ -1,0 +1,34 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroSection from "@components/sections/landing/HeroSection.astro";
+import ClientsSection from "@components/sections/landing/ClientsSection.astro";
+import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import heroImage from "@images/hero-image.avif";
+import features from "@data/features.json";
+---
+
+<MainLayout>
+  <HeroSection
+    title=`Recuperare medicală cu <span
+        class="text-red-500 dark:text-red-500">Health Academy</span>`
+    subTitle="Centru de excelență în recuperare și performanță sportivă<br>Centru de excelență în ortopedie"
+    primaryBtn="Află mai multe"
+    primaryBtnURL="/services"
+    secondaryBtn="Contactează-ne"
+    secondaryBtnURL="/contact"
+    withReview={false}
+    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
+    src={heroImage}
+    alt="Athlete after recovering at HealthAcademy"
+  />
+  <FeaturesGeneral
+    title="De ce sa alegi HealthAcademy?"
+    subTitle="Reîntoarcere eficientă și în siguranță la sport, o viață fără dureri și cu mobilitate completă."
+    features={features}
+  />
+
+  <ClientsSection
+    title="Încredere din partea atleților și a tuturor celorlalți"
+    subTitle=""
+  />
+</MainLayout>

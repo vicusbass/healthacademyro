@@ -1,0 +1,30 @@
+---
+// Import the necessary components
+import PricingSection from "@/components/sections/PricingSection.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import { SITE } from "@data/constants";
+import pricing from "@data/pricing.json";
+
+const pageTitle: string = `Prețuri | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://health-academy.ro/pricing",
+    url: "https://health-academy.ro/pricing",
+    name: "Prețuri | HealthAcademy",
+    description: "Prețurile serviciilor noastra",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://health-academy.ro",
+      name: "HealthAcademy",
+      description: "Prețurile serviciilor HealthAcademy.",
+    },
+    inLanguage: "ro-RO",
+  }}
+>
+  <PricingSection pricing={pricing} />
+</MainLayout>

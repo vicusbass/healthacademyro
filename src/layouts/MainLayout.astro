@@ -31,8 +31,13 @@ interface Props {
     <script is:inline src="/scripts/nav-persistence.js"></script>
     <script is:inline>
       // Script to initialize Lenis for smooth scrolling
-      document.addEventListener('astro:page-load', () => {
-        const lenis = new window.Lenis({
+      let lenis;
+      
+      // Initialize Lenis once
+      function initLenis() {
+        if (lenis) return; // Don't re-initialize if already exists
+        
+        lenis = new window.Lenis({
           duration: 1.2,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           direction: 'vertical',
@@ -46,10 +51,28 @@ interface Props {
 
         function raf(time) {
           lenis.raf(time);
-          window.requestAnimationFrame(raf);
+          requestAnimationFrame(raf);
         }
 
-        window.requestAnimationFrame(raf);
+        requestAnimationFrame(raf);
+      }
+      
+      // Initialize on first page load
+      document.addEventListener('astro:page-load', () => {
+        initLenis();
+      }, { once: true });
+      
+      // Clean up on page navigation start to avoid conflicts
+      document.addEventListener('astro:before-preparation', () => {
+        if (lenis) {
+          lenis.destroy();
+          lenis = null;
+        }
+      });
+      
+      // Re-initialize after navigation completes
+      document.addEventListener('astro:after-swap', () => {
+        initLenis();
       });
     </script>
   </head>

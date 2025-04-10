@@ -1,0 +1,49 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import RightSection from "@components/ui/blocks/RightSection.astro";
+
+import { SITE } from "@data/constants";
+import data from "@data/afflictions.json" assert { type: "json" };
+
+interface Affliction {
+  name: string;
+  details?: string;
+}
+const afflictions: Affliction[] = data as Affliction[];
+
+const pageTitle: string = `Afecțiuni | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://health-academy.ro/afectiuni",
+    url: "https://health-academy.ro/afectiuni",
+    name: "Afecțiuni / Ce tratăm? | HealthAcademy",
+    description: "O lista a câtorva dintre afecțiunile pe care le tratăm.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://health-academy.ro",
+      name: "HealthAcademy",
+      description: "Servicii profesioniste de recuperare medicala.",
+    },
+    inLanguage: "ro-RO",
+  }}
+>
+  <MainSection
+    title="Afecțiuni / Ce tratăm?"
+    subTitle="O lista a câtorva dintre afecțiunile pe care le tratăm."
+    btnExists={true}
+    btnTitle="Contacteaza-ne"
+    btnURL="/contact"
+  />
+
+  {
+    afflictions.map((item) => (
+      <RightSection title={item.name} subTitle={item.details} single />
+    ))
+  }
+</MainLayout>
