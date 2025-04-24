@@ -11,16 +11,20 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: 'https://health-academy.ro',
-  image: {
-    domains: ['images.unsplash.com'],
-  },
   prefetch: true,
   integrations: [tailwind(), sitemap(), compressor({
     gzip: false,
     brotli: true,
   }), icon(), mdx()],
-  output: 'server',
-  adapter: vercel(),
+  output: 'static',
+  adapter: vercel({
+    imageService: true,
+    devImageService: 'sharp',
+    imagesConfig: {
+      domains: ['images.unsplash.com'],
+      sizes: [320, 640, 1280],
+    },
+  }),
   // experimental: {
   //   clientPrerender: true,
   //   directRenderScript: true,

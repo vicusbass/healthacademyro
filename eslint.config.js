@@ -22,6 +22,8 @@ export default [
         console: 'readonly',
         URL: 'readonly',
         Response: 'readonly',
+        requestAnimationFrame: 'readonly',
+        Lenis: 'readonly',
       },
     },
     rules: {
