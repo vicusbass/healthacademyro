@@ -5,54 +5,55 @@ import Navbar from '@components/sections/Navbar.astro';
 import FooterSection from '@components/sections/FooterSection.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import { SITE } from '@data/constants';
-import Lenis from 'lenis';
 
 // Setting expected props
 const { title = SITE.title, meta, structuredData, lang = 'ro' } = Astro.props;
 
 // Interface to type-check the properties
+interface StructuredWebPage {
+  '@context': string;
+  '@type': string;
+  inLanguage: string;
+  '@id': string;
+  url: string;
+  name: string;
+  description: string;
+  isPartOf?: {
+    '@type': string;
+    url: string;
+    name: string;
+    description: string;
+  };
+  // Add other properties if necessary based on full SEO.structuredData structure
+}
+
 interface Props {
   title?: string;
-  meta?: any;
-  structuredData?: any;
+  meta?: string;
+  structuredData?: StructuredWebPage;
   lang?: string;
 }
 ---
 
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth dark scroll-pt-16">
+<html lang={lang} class="scrollbar-hide dark scroll-pt-16">
   <head>
+    <style>
+      @keyframes fadeInBody {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      body.preload-fade {
+        opacity: 0; /* Start hidden */
+        animation: fadeInBody 0.4s ease-in-out 0.1s forwards; /* Delay slightly, then fade in */
+      }
+    </style>
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
     <SpeedInsights />
     <!-- Define the title of the page -->
     <title>{title}</title>
-    <!-- <script is:inline src="/scripts/nav-persistence.js"></script> -->
-    <script is:inline>
-      // Script to handle Lenis library settings for smooth scrolling
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-        infinite: false,
-      });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
-
-    </script>
   </head>
-  <body
-    class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
-  >
+  <body class="preload-fade bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
 
     <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
       <Navbar />
@@ -61,38 +62,5 @@ interface Props {
       </main>
     </div>
     <FooterSection />
-    <style>
-      /* CSS rules for the page scrollbar and scrolling experience with lenis library */
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-
-      .lenis.lenis-smooth {
-        scroll-behavior: auto;
-      }
-
-      .lenis.lenis-smooth [data-lenis-prevent] {
-        overscroll-behavior: contain;
-      }
-
-      .lenis.lenis-stopped {
-        overflow: hidden;
-      }
-
-      .lenis.lenis-scrolling iframe {
-        pointer-events: none;
-      }
-
-      /* Custom fade animations for page transitions
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      
-      @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
-      } */
-    </style>
   </body>
 </html>

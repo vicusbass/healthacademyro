@@ -5,7 +5,10 @@ import astroPlugin from 'eslint-plugin-astro';
 export default [
   eslintJs.configs.recommended,
   ...tseslint.configs.recommended,
+  // Apply eslint-plugin-astro's recommended flat configuration
+  ...astroPlugin.configs['flat/recommended'], 
   {
+    // Custom overrides for Astro files AFTER applying recommended config
     files: ['**/*.astro'],
     plugins: {
       astro: astroPlugin,
@@ -16,20 +19,20 @@ export default [
         // Astro globals
         Astro: 'readonly',
         Fragment: 'readonly',
-        // Browser globals
+        // Browser globals (some might be covered by astro recommended)
         document: 'readonly',
         window: 'readonly',
         console: 'readonly',
         URL: 'readonly',
         Response: 'readonly',
         requestAnimationFrame: 'readonly',
-        Lenis: 'readonly',
       },
     },
     rules: {
-      // Disable rules that don't work well with Astro
-      'no-undef': 'off',
-      'no-unused-vars': 'off',
+      // Your existing custom rules for Astro (some might be covered or conflict)
+      'no-undef': 'off', // Keep this if astro recommended doesn't handle it as desired
+      'no-unused-vars': 'off', // Keep this if astro recommended doesn't handle it as desired
+      // Add any other specific Astro rules you want to maintain or override
     },
   },
   {
