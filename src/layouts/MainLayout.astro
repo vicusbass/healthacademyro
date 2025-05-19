@@ -5,6 +5,7 @@ import Navbar from '@components/sections/Navbar.astro';
 import FooterSection from '@components/sections/FooterSection.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import { SITE } from '@data/constants';
+import Lenis from 'lenis';
 
 // Setting expected props
 const { title = SITE.title, meta, structuredData, lang = 'ro' } = Astro.props;
@@ -25,8 +26,7 @@ interface Props {
     <SpeedInsights />
     <!-- Define the title of the page -->
     <title>{title}</title>
-    <script is:inline src="/scripts/vendor/lenis/lenis.js"></script>
-    <script is:inline src="/scripts/nav-persistence.js"></script>
+    <!-- <script is:inline src="/scripts/nav-persistence.js"></script> -->
     <script is:inline>
       // Script to handle Lenis library settings for smooth scrolling
       const lenis = new Lenis({
@@ -83,7 +83,7 @@ interface Props {
         pointer-events: none;
       }
 
-      /* Custom fade animations for page transitions */
+      /* Custom fade animations for page transitions
       @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
@@ -92,7 +92,7 @@ interface Props {
       @keyframes fadeOut {
         from { opacity: 1; }
         to { opacity: 0; }
-      }
+      } */
     </style>
   </body>
 </html>
