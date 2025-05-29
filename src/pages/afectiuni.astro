@@ -1,49 +1,37 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro";
-import MainSection from "@components/ui/blocks/MainSection.astro";
-import RightSection from "@components/ui/blocks/RightSection.astro";
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import data from "../data/afflictions.json";
 
-import { SITE } from "@data/constants";
-import data from "@data/afflictions.json" assert { type: "json" };
-
-interface Affliction {
-  name: string;
-  details?: string;
-}
-const afflictions: Affliction[] = data as Affliction[];
-
-const pageTitle: string = `Afecțiuni | ${SITE.title}`;
+// Sort data by name
+data.sort((a, b) => a.name.localeCompare(b.name));
 ---
 
-<MainLayout
-  title={pageTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://health-academy.ro/afectiuni",
-    url: "https://health-academy.ro/afectiuni",
-    name: "Afecțiuni / Ce tratăm? | HealthAcademy",
-    description: "O lista a câtorva dintre afecțiunile pe care le tratăm.",
-    isPartOf: {
-      "@type": "WebSite",
-      url: "https://health-academy.ro",
-      name: "HealthAcademy",
-      description: "Servicii profesioniste de recuperare medicala.",
-    },
-    inLanguage: "ro-RO",
-  }}
->
-  <MainSection
-    title="Afecțiuni / Ce tratăm?"
-    subTitle="O lista a câtorva dintre afecțiunile pe care le tratăm."
-    btnExists={true}
-    btnTitle="Contacteaza-ne"
-    btnURL="/contact"
-  />
-
-  {
-    afflictions.map((item) => (
-      <RightSection title={item.name} subTitle={item.details} single />
-    ))
-  }
-</MainLayout>
+<Layout title="Afecțiuni - Health Academy">
+  <main>
+    <HeroSection 
+      title="Afecțiuni / Ce tratăm?" 
+      highlightText=""
+      description="O listă a câtorva dintre afecțiunile pe care le tratăm."
+    />
+    
+    <section class="py-10 bg-white dark:bg-gray-800">
+      <div class="container-custom">
+        <div class="max-w-6xl mx-auto">          
+          <div class="grid md:grid-cols-2 gap-10 mb-16">
+            {data.map((d) => (
+              <div class="card p-8 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="flex items-start mb-6">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{d.name}</h3>
+              </div>
+              <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                {d.details}
+              </p>
+            </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout> 
