@@ -56,6 +56,9 @@ const itemsWithImages = await Promise.all(
                   <Image
                     src={item.img}
                     alt={item.imgOneAlt}
+                    width={600}
+                    height={400}
+                    class="w-full h-auto object-contain max-h-[400px]"
                   />
                 )}
               </div>
