@@ -1,3 +1,3 @@
-# HealthAcademy
+# Based on Astro Sassify Template
 
-HealthAcademy site
+[Buy author's a coffee](<https://buymeacoffee.com/yujian.xue>)

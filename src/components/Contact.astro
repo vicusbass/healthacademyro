@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import locationSrc from '../assets/location.jpg';
+import { Icon } from "astro-icon/components";
+---
+<section id="contact" class="section bg-gray-50 dark:bg-gray-800/50">
+  <div class="container-custom">
+    <div class="grid md:grid-cols-2 gap-12">
+      <div class="slide-up">
+        <h2 class="mb-6 text-gray-900 dark:text-white">Contactează-ne</h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-8">
+          Ai întrebări despre cum te putem ajuta? Contactează-ne și vom încerca să îți răspundem în cel mai scurt timp
+        </p>
+        
+        <div class="space-y-6">
+          <div class="flex items-start">
+            <div class="shrink-0 mt-1">
+              <svg class="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Telefon/WhatsApp
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">
+                <a href="tel:+40725215136" class="hover:text-secondary-500 transition-colors">+40725215136</a>
+              </p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="shrink-0 mt-1">
+              <svg class="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Vizitează-ne</h3>
+              <p class="text-gray-600 dark:text-gray-300">Piata Cipariu 11, Cluj-Napoca (intrarea se face prin spatele clădirii de pe strada Voltaire)</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="shrink-0 mt-1">
+              <svg class="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Email</h3>
+              <p class="text-gray-600 dark:text-gray-300">
+                <a href="mailto:healthacademy.cluj@gmail.com" class="hover:text-secondary-500 transition-colors">healthacademy.cluj@gmail.com</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-8">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Social Media</h3>
+          <div class="flex space-x-4">
+            <a href="https://www.instagram.com/healthacademycluj" class="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors" aria-label="Instagram">
+              <Icon name="mdi:instagram" class="w-6 h-6"/>
+            </a>
+            <a href="https://www.tiktok.com/@healthacademycluj" class="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors" aria-label="Tiktok">
+              <svg class="w-6 h-6" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="48" height="48" fill="white" fill-opacity="0.01"></rect> <path d="M21.3583 19.14C15.4696 18.8559 11.3764 20.9554 9.07862 25.4385C5.63194 32.1631 8.48051 43.1666 19.9791 43.1666C31.4776 43.1666 31.8103 32.0555 31.8103 30.8915C31.8103 30.1154 31.8103 25.7765 31.8103 17.8746C34.2697 19.4324 36.3433 20.3701 38.031 20.6877C39.7188 21.0054 40.7918 21.1462 41.2499 21.1101V14.6343C39.6888 14.4461 38.3388 14.0874 37.1999 13.5582C35.4915 12.7643 32.104 10.5612 32.104 7.33214C32.1063 7.34793 32.1063 6.51499 32.104 4.83331H24.9859C24.9648 20.6494 24.9648 29.3354 24.9859 30.8915C25.0177 33.2255 23.207 36.4905 19.5358 36.4905C15.8645 36.4905 14.0538 33.2282 14.0538 31.1239C14.0538 29.8357 14.4962 27.9685 16.3253 26.5858C17.41 25.7659 18.9155 25.4385 21.3583 25.4385C21.3583 24.6829 21.3583 22.5834 21.3583 19.14Z" fill="#f9fafb" stroke="#000000" stroke-width="3.83333" stroke-linejoin="round"></path> </g></svg>
+            </a>
+            <a href="https://www.facebook.com/healthacademycluj" class="text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors" aria-label="Facebook">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-up" style="animation-delay: 150ms">
+        <div class="card p-6 border border-gray-200 dark:border-gray-700">
+          <h3 class="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Locație</h3>
+          <Image src={locationSrc} alt="Health Academy Cluj - locatie" width={600} height={500} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

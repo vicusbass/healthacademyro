@@ -1,0 +1,28 @@
+---
+import { marked } from 'marked';
+import { plans } from '../data/pricingPlans.js';
+---
+
+<section id="pricing" class="section bg-gray-50 dark:bg-gray-800/50">
+  <div class="container-custom">
+    <div class="grid md:grid-cols-4 gap-2">
+      {plans.map((plan, index) => (
+        <div 
+          class={`card p-6 border border-gray-200 dark:border-gray-700 slide-up relative`}
+          style={`animation-delay: ${index * 150}ms`}
+        >
+          
+          <h3 class="text-xl font-semibold mb-6 text-red-500 dark:text-red-500">{plan.name}</h3>
+          
+          <div class="markdown-content space-y-3 mb-8 text-gray-600 dark:text-gray-300" set:html={marked.parse(plan.details)}></div>
+          
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-12 text-center">
+      <p class="text-gray-600 dark:text-gray-300 mb-2">Ai nevoie de un plan special pentru tine?</p>
+      <a href="/contact" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Contacteaza-ne</a>
+    </div>
+  </div>
+</section>
