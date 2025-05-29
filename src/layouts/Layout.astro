@@ -46,14 +46,18 @@ const {
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content={`${Astro.site}/og-image.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Health Academy" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/og-image.png" />
+    <meta property="twitter:image" content={`${Astro.site}/og-image.png`} />
+    <meta property="twitter:image:alt" content="Health Academy" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href={Astro.url} />
