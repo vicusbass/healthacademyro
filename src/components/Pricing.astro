@@ -1,12 +1,34 @@
 ---
 import { marked } from 'marked';
-import { plans } from '../data/pricingPlans.js';
+import { plans as rawPlans } from '../data/pricingPlans.js';
+
+// Define interfaces for the data structure to be used in this component
+interface PricingItem {
+  text: string;
+  note?: string; // Optional note
+  // modalDetails?: any; // Add if you plan to use item-specific modals later
+}
+
+interface Section {
+  title: string;
+  items: PricingItem[];
+  // sectionModalDetails?: any; // Add if you plan to use section-specific modals later
+}
+
+interface Plan {
+  name: string;
+  sections: Section[];
+  // 'details' was part of the old structure, ensure it's not expected by current rendering if removed from data
+}
+
+// Perform a type assertion for the imported plans
+const plans: Plan[] = rawPlans as Plan[];
 ---
 
 <section id="pricing" class="section bg-gray-50 dark:bg-gray-800/50">
   <div class="container-custom">
-    <div class="grid md:grid-cols-4 gap-2">
-      {plans.map((plan, index) => (
+    <div class="grid md:grid-cols-4 gap-1">
+      {plans.map((plan: Plan, index: number) => (
         <div 
           class={`card p-6 border border-gray-200 dark:border-gray-700 slide-up relative`}
           style={`animation-delay: ${index * 150}ms`}
@@ -14,7 +36,25 @@ import { plans } from '../data/pricingPlans.js';
           
           <h3 class="text-xl font-semibold mb-6 text-red-500 dark:text-red-500">{plan.name}</h3>
           
-          <div class="markdown-content space-y-3 mb-8 text-gray-600 dark:text-gray-300" set:html={marked.parse(plan.details)}></div>
+          <div class="space-y-6"> <!-- Container for all sections within this plan -->
+            {plan.sections && plan.sections.map((section: Section) => (
+              <div class="section-item border-t border-gray-200 dark:border-gray-700 pt-4 first:pt-0 first:border-t-0">
+                <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">{section.title}</h4>
+                {section.items && section.items.length > 0 && (
+                  <ul class="list-none pl-0 space-y-1.5 text-base">
+                    {section.items.map((item: PricingItem) => (
+                      <li class="text-gray-600 dark:text-gray-400">
+                        <span set:html={marked.parseInline(item.text || '')} />
+                        {item.note && (
+                          <p class="text-sm text-blue-600 dark:text-blue-400 ml-1 mt-0.5 italic" set:html={marked.parseInline(item.note)} />
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
           
         </div>
       ))}
