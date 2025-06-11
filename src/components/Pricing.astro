@@ -2,60 +2,85 @@
 import { marked } from 'marked';
 import { plans as rawPlans } from '../data/pricingPlans.js';
 
-// Define interfaces for the data structure to be used in this component
+// Define interfaces for the data structure
 interface PricingItem {
   text: string;
-  note?: string; // Optional note
-  // modalDetails?: any; // Add if you plan to use item-specific modals later
+  note?: string;
 }
 
 interface Section {
   title: string;
   items: PricingItem[];
-  // sectionModalDetails?: any; // Add if you plan to use section-specific modals later
+  sectionModalDetails?: {
+    title: string;
+    content: string;
+  };
 }
 
 interface Plan {
   name: string;
   sections: Section[];
-  // 'details' was part of the old structure, ensure it's not expected by current rendering if removed from data
 }
 
-// Perform a type assertion for the imported plans
 const plans: Plan[] = rawPlans as Plan[];
 ---
 
 <section id="pricing" class="section bg-gray-50 dark:bg-gray-800/50">
   <div class="container-custom">
     <div class="grid md:grid-cols-4 gap-1">
-      {plans.map((plan: Plan, index: number) => (
-        <div 
-          class={`card p-6 border border-gray-200 dark:border-gray-700 slide-up relative`}
-          style={`animation-delay: ${index * 150}ms`}
-        >
-          
+      {plans.map((plan: Plan, planIndex: number) => (
+        <div class={`card p-6 border border-gray-200 dark:border-gray-700 slide-up relative`} style={`animation-delay: ${planIndex * 150}ms`}>
           <h3 class="text-xl font-semibold mb-6 text-red-500 dark:text-red-500">{plan.name}</h3>
-          
-          <div class="space-y-6"> <!-- Container for all sections within this plan -->
-            {plan.sections && plan.sections.map((section: Section) => (
-              <div class="section-item border-t border-gray-200 dark:border-gray-700 pt-4 first:pt-0 first:border-t-0">
-                <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">{section.title}</h4>
-                {section.items && section.items.length > 0 && (
-                  <ul class="list-none pl-0 space-y-1.5 text-base">
-                    {section.items.map((item: PricingItem) => (
-                      <li class="text-gray-600 dark:text-gray-400">
-                        <span set:html={marked.parseInline(item.text || '')} />
-                        {item.note && (
-                          <p class="text-sm text-blue-600 dark:text-blue-400 ml-1 mt-0.5 italic" set:html={marked.parseInline(item.note)} />
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
+          <div class="space-y-6">
+            {plan.sections && plan.sections.map((section: Section, sectionIndex: number) => {
+              const modalId = `modal-${plan.name.replace(/\s+/g, '-')}-${sectionIndex}`;
+              return (
+                <>
+                  <div class="section-item border-t border-gray-200 dark:border-gray-700 pt-4 first:pt-0 first:border-t-0">
+                    <div class="flex items-center justify-between mb-3">
+                      <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300">{section.title}</h4>
+                      {section.sectionModalDetails && (
+                        <button class="btn btn-ghost btn-circle btn-sm text-red-500" onclick={`document.getElementById('${modalId}').showModal()`}>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                          </svg>
+                        </button>
+                      )}
+                    </div>
+                    {section.items && section.items.length > 0 && (
+                      <ul class="list-none pl-0 space-y-1.5 text-base">
+                        {section.items.map((item: PricingItem) => (
+                          <li class="text-gray-600 dark:text-gray-400">
+                            <span set:html={marked.parseInline(item.text || '')} />
+                            {item.note && (
+                              <p class="text-sm text-blue-600 dark:text-blue-400 ml-1 mt-0.5 italic" set:html={marked.parseInline(item.note)} />
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+
+                  {/* DaisyUI Modal */}
+                  {section.sectionModalDetails && (
+                    <dialog id={modalId} class="modal">
+                      <div class="modal-box max-w-md">
+                        <form method="dialog">
+                          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-base-content">✕</button>
+                        </form>
+                        <h3 class="font-bold text-lg text-base-content">{section.sectionModalDetails.title}</h3>
+                        <div class="py-4 prose dark:prose-invert max-w-none text-base-content" set:html={marked.parse(section.sectionModalDetails.content || '')} />
+                        {/* Removed explicit close button, relying on ESC or backdrop click */}
+                      </div>
+                       <form method="dialog" class="modal-backdrop">
+                        <button>close</button> {/* This button is for backdrop click functionality */}
+                      </form>
+                    </dialog>
+                  )}
+                </>
+              );
+            })}
           </div>
-          
         </div>
       ))}
     </div>
