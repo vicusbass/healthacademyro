@@ -564,7 +564,7 @@ export const planGroups = [
         ]
       },
       {
-        name: "9 months FULL CLUB ACCES",
+        name: "9 months FULL CLUB ACCES<br>(up to 12 months)",
         sections: [
           {
             title: "Suited for:",
