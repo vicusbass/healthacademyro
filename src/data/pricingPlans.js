@@ -424,7 +424,7 @@ export const planGroups = [
           {
             title: "Servicii Incluse",
             items: [
-              { text: "- 12 sedinte pregatire premium" },
+              { text: "- 12 sedinte pregatire standard" },
               { text: "- 4 sedinte refacere standard" },
               { text: "**940 lei**" }
             ]
@@ -437,7 +437,7 @@ export const planGroups = [
           {
             title: "Servicii Incluse",
             items: [
-              { text: "- 12 sedinte pregatire premium" },
+              { text: "- 12 sedinte pregatire standard" },
               { text: "- 4 sedinte masaj regiune" },
               { text: "**1100 lei**" }
             ]
@@ -450,7 +450,7 @@ export const planGroups = [
           {
             title: "Servicii Incluse",
             items: [
-              { text: "- 12 sedinte pregatire premium" },
+              { text: "- 12 sedinte pregatire standard" },
               { text: "- 4 sedinte criosauna" },
               { text: "**1190 lei**" }
             ]
@@ -463,7 +463,7 @@ export const planGroups = [
           {
             title: "Servicii Incluse",
             items: [
-              { text: "- 12 sedinte pregatire premium" },
+              { text: "- 12 sedinte pregatire standard" },
               { text: "- 4 sedinte refacere standard" },
               { text: "- 4 sedinte masaj regiune" },
               { text: "**1390 lei**" }
@@ -477,7 +477,7 @@ export const planGroups = [
           {
             title: "Servicii Incluse",
             items: [
-              { text: "- 12 sedinte pregatire premium" },
+              { text: "- 12 sedinte pregatire standard" },
               { text: "- 4 sedinte criosauna" },
               { text: "- 4 sedinte masaj regiune" },
               { text: "**1640 lei**" }
