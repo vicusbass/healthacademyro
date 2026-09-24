@@ -6,12 +6,12 @@ import logoBlack from '../assets/health-academy-logo-svg-blacks.svg'; // For lig
 // Define menu items once to avoid duplication
 const menuItems = [
   { href: '/', label: 'Home' },
-  { href: '/tehnologii', label: 'Tehnologii' },
-  { href: '/servicii', label: 'Servicii' },
-  { href: '/afectiuni', label: 'Afecțiuni' },
-  // { href: '/preturi', label: 'Prețuri' },  // Temporarily disabled
-  // { href: '/echipa', label: 'Echipa' },    // Temporarily disabled
-  { href: '/contact', label: 'Contact' },
+  { href: '/tehnologii/', label: 'Tehnologii' },
+  { href: '/servicii/', label: 'Servicii' },
+  { href: '/afectiuni/', label: 'Afecțiuni' },
+  // { href: '/preturi/', label: 'Prețuri' },  // Temporarily disabled
+  // { href: '/echipa/', label: 'Echipa' },    // Temporarily disabled
+  { href: '/contact/', label: 'Contact' },
 ];
 const loginUrl = 'https://healthacademy.flexgate.ro/';
 ---
@@ -26,6 +26,7 @@ const loginUrl = 'https://healthacademy.flexgate.ro/';
         width={160}
         height={40}
         class="h-10 w-auto logo-light-theme"
+        loading="eager"
       />
       <!-- Dark mode logo -->
       <Image
@@ -34,6 +35,7 @@ const loginUrl = 'https://healthacademy.flexgate.ro/';
         width={160}
         height={40}
         class="h-10 w-auto logo-dark-theme"
+        loading="eager"
       />
       <span class="ml-2 text-2xl font-display font-semibold text-secondary-900 dark:text-white">Health Academy</span>
     </a>
